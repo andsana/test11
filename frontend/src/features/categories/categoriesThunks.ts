@@ -4,8 +4,14 @@ import { Category } from '../../types';
 
 export const fetchCategories = createAsyncThunk(
   'categories/fetchAll',
-  async () => {
-    const response = await axiosApi.get<Category[]>('/categories');
+  async (categoryId?: string) => {
+    let url = '/categories';
+
+    if (categoryId) {
+      url += `?category=${categoryId}`;
+    }
+
+    const response = await axiosApi.get<Category[]>(url);
     return response.data;
   },
 );

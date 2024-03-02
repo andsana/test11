@@ -7,16 +7,6 @@ import auth, { RequestWithUser } from '../middleware/auth';
 
 const productsRouter = Router();
 
-productsRouter.get('/', async (_req, res, next) => {
-  try {
-    const results = await Product.find();
-
-    res.send(results);
-  } catch (e) {
-    return next(e);
-  }
-});
-
 productsRouter.get('/:id', async (req, res, next) => {
   try {
     let _id: Types.ObjectId;
@@ -90,6 +80,23 @@ productsRouter.delete('/:id', auth, async (req: RequestWithUser, res, next) => {
     res.send({ message: 'Product deleted successfully!' });
   } catch (e) {
     next(e);
+  }
+});
+
+productsRouter.get('/', async (req, res, next) => {
+  try {
+    let query = {};
+    const categoryId = req.query.category;
+
+    if (categoryId) {
+      query = { category: categoryId };
+    }
+
+    const results = await Product.find(query);
+
+    res.send(results);
+  } catch (e) {
+    return next(e);
   }
 });
 
