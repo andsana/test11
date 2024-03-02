@@ -54,7 +54,7 @@ productsRouter.post(
         user: req.user._id.toString(),
         title: req.body.title,
         description: req.body.description,
-        price: req.body.price,
+        price: parseFloat(req.body.price),
         image: req.file ? req.file.filename : null,
       };
 

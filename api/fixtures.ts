@@ -68,7 +68,7 @@ const run = async () => {
       description: 'sport',
       price: 41361,
       category: toyotaCategory,
-      image: 'camry.png',
+      image: 'fixtures/camry.png',
       user: user1,
     },
     {
@@ -76,7 +76,7 @@ const run = async () => {
       description: 'premium',
       price: 33762,
       category: toyotaCategory,
-      image: 'corolla.png',
+      image: 'fixtures/corolla.png',
       user: user2,
     },
     {
@@ -84,7 +84,7 @@ const run = async () => {
       description: 'premium',
       price: 33762,
       category: toyotaCategory,
-      image: 'yaris.png',
+      image: 'fixtures/yaris.jpg',
       user: user3,
     },
     {
@@ -92,7 +92,7 @@ const run = async () => {
       description: 'premium',
       price: 33762,
       category: hyundaiCategory,
-      image: 'creta.png',
+      image: 'fixtures/creta.png',
       user: user1,
     },
     {
@@ -100,7 +100,7 @@ const run = async () => {
       description: 'premium',
       price: 33762,
       category: hyundaiCategory,
-      image: 'elantra.png',
+      image: 'fixtures/elantra.png',
       user: user2,
     },
     {
@@ -108,7 +108,7 @@ const run = async () => {
       description: 'hybrid',
       price: 33762,
       category: hyundaiCategory,
-      image: 'santafe.png',
+      image: 'fixtures/santafe.png',
       user: user3,
     },
     {
@@ -116,7 +116,7 @@ const run = async () => {
       description: 'premium',
       price: 33762,
       category: fordCategory,
-      image: 'wildtrack.png',
+      image: 'fixtures/wildtrack.png',
       user: user1,
     },
     {
@@ -124,7 +124,7 @@ const run = async () => {
       description: 'premium',
       price: 33762,
       category: fordCategory,
-      image: 'titanium.png',
+      image: 'fixtures/titanium.png',
       user: user2,
     },
     {
@@ -132,7 +132,7 @@ const run = async () => {
       description: 'premium',
       price: 33762,
       category: fordCategory,
-      image: 'trend.png',
+      image: 'fixtures/trend.png',
       user: user3,
     },
   );
