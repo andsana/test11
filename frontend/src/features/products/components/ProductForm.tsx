@@ -13,6 +13,7 @@ interface Props {
 const ProductForm: React.FC<Props> = ({ onSubmit }) => {
   const dispatch = useAppDispatch();
   const categories = useAppSelector(selectCategories);
+
   const [state, setState] = useState<ProductMutation>({
     category: '',
     title: '',

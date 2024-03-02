@@ -1,45 +1,39 @@
-import { Button, Grid, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { CircularProgress, Grid } from '@mui/material';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { selectProducts } from './productsSlice';
+import { selectProducts, selectProductsLoading } from './productsSlice';
 import { useEffect } from 'react';
 import { fetchProducts } from './productsThunks';
 import ProductItem from './components/ProductItem';
-import { selectUser } from '../users/usersSlice.ts';
+import CategoriesList from '../categories/CategoriesList.tsx';
 
 const Products = () => {
   const dispatch = useAppDispatch();
   const products = useAppSelector(selectProducts);
-  const user = useAppSelector(selectUser);
+  const productsLoading = useAppSelector(selectProductsLoading);
 
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
   return (
-    <Grid container direction="column" spacing={2}>
-      <Grid item container justifyContent="space-between" alignItems="center">
-        <Grid item>
-          <Typography variant="h4">Cars</Typography>
-        </Grid>
-        <Grid item>
-          {user && (
-            <Button color="primary" component={Link} to="/products/new">
-              Add product
-            </Button>
-          )}
-        </Grid>
+    <Grid container spacing={2}>
+      <Grid item xs={2}>
+        <CategoriesList />
       </Grid>
-      <Grid item container spacing={2}>
-        {products.map((product) => (
-          <ProductItem
-            key={product._id}
-            id={product._id}
-            title={product.title}
-            price={product.price}
-            image={product.image}
-          />
-        ))}
+      <Grid item xs={10} container spacing={2}>
+        {productsLoading ? (
+          <CircularProgress />
+        ) : (
+          products.map((product) => (
+            <ProductItem
+              key={product._id}
+              id={product._id}
+              title={product.title}
+              price={product.price}
+              image={product.image}
+            />
+          ))
+        )}
       </Grid>
     </Grid>
   );
