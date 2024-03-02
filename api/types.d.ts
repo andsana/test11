@@ -2,12 +2,11 @@ import { Model } from 'mongoose';
 
 export interface ProductMutation {
   category: string;
+  user: string;
   title: string;
   price: number;
   description: string;
   image: string | null;
-  sellerName: string;
-  sellerPhone: number;
 }
 
 export interface UserFields {

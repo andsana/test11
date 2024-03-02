@@ -1,5 +1,6 @@
 import { Schema, model, Types } from 'mongoose';
 import Category from './Category';
+import User from './User';
 
 const ProductSchema = new Schema({
   category: {
@@ -18,6 +19,13 @@ const ProductSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User',
     required: true,
+    validate: {
+      validator: async (value: Types.ObjectId) => {
+        const user = await User.findById(value);
+        return Boolean(user);
+      },
+      message: 'User does not exist!',
+    },
   },
   title: {
     type: String,
